@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_13k3x5a" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="9b0b274" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+  <decision id="Decision_1slct5u" name="Loan Simulation">
+    <informationRequirement id="InformationRequirement_0z45zzr">
+      <requiredDecision href="#Decision_0ibjfoo" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0v0v3xd">
+      <requiredDecision href="#Decision_1j0e9yu" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ogpgn5">
+      <requiredInput href="#InputData_0dwv50s" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_11jk0ok">
+      <input id="Input_1" label="Is Eligible">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1y0algi" label="Max Limit">
+        <inputExpression id="LiteralExpression_1pekxbn" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_087k5up" label="Requested Amount">
+        <inputExpression id="LiteralExpression_0d4p82p" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_14eqrp5" label="Admin+Insurance (5%)">
+        <inputExpression id="LiteralExpression_0lfwtz8" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ef9lzn" label="Total Loan">
+        <inputExpression id="LiteralExpression_17aud8m" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Final Decision" typeRef="string" />
+      <rule id="DecisionRule_0b3hw1l">
+        <inputEntry id="UnaryTests_1pbo5t7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09e6foe">
+          <text>8500000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11w056q">
+          <text>8100000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_017awdf">
+          <text>405000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eeihv4">
+          <text>8505000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u0fvde">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19jjiu4">
+        <inputEntry id="UnaryTests_1dmnjj9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k9cfm8">
+          <text>8500000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pyjaur">
+          <text>7700000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1328m1y">
+          <text>385000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01wrjac">
+          <text>8085000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a65hd8">
+          <text>"APPROVED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07hns4l">
+        <inputEntry id="UnaryTests_1rauqd2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h9zkqs">
+          <text>6000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ltlqba">
+          <text>5800000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09t7ldf">
+          <text>290000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p11nyd">
+          <text>6090000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hb5b82">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x8dase">
+        <inputEntry id="UnaryTests_1ulx08h">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1crnt6f">
+          <text>6000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lwqdrv">
+          <text>5000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gboq3v">
+          <text>250000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1arcf7j">
+          <text>5250000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jsmpwq">
+          <text>"APPROVED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1t66ufw">
+        <inputEntry id="UnaryTests_1w03y4h">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14xsj5r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fguygp">
+          <text>500000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k68jr9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ow41pv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12mmo92">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0ibjfoo" name="Limit">
+    <informationRequirement id="InformationRequirement_0es4419">
+      <requiredInput href="#InputData_0746hvh" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1q4fepo">
+      <requiredInput href="#InputData_10n82n9" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1aagopn">
+      <input id="InputClause_1t8amfb" label="Year of Vehicle">
+        <inputExpression id="LiteralExpression_1piv6yh" typeRef="number" />
+      </input>
+      <input id="InputClause_0d6xswa" label="Vehicle Type">
+        <inputExpression id="LiteralExpression_1wb20b3" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1agiiey" label="Limit" typeRef="number" />
+      <rule id="DecisionRule_1qqbqvu">
+        <inputEntry id="UnaryTests_0qijd0j">
+          <text>[2020..2025]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u21tn2">
+          <text>"LUXURY_CAR"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16upmj4">
+          <text>8500000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1248k9o">
+        <inputEntry id="UnaryTests_0bttyv9">
+          <text>[2014..2019]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05vvbxd">
+          <text>"SUPERBIKE"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dnoakh">
+          <text>6000000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18y4gju">
+        <inputEntry id="UnaryTests_1oas1jh">
+          <text>[2010..2013]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c0ie31">
+          <text>"CITY_CAR"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hz3voj">
+          <text>1000000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13gfkcj">
+        <inputEntry id="UnaryTests_1ej4xvl">
+          <text>&lt;2010</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07ztnw7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ka7urh">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1j0e9yu" name="Loan Status">
+    <informationRequirement id="InformationRequirement_1r98469">
+      <requiredInput href="#InputData_0ehjozc" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0p5rmf2">
+      <input id="InputClause_05mgwku" label="Year of Vehicle" biodi:width="192">
+        <inputExpression id="LiteralExpression_0mhyfh4" typeRef="number" />
+      </input>
+      <input id="InputClause_01v211u" label="Tax Status">
+        <inputExpression id="LiteralExpression_0b3w9a2" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1osknqz" label="Is Eligible" typeRef="boolean" />
+      <rule id="DecisionRule_0y5v3yg">
+        <inputEntry id="UnaryTests_08qh7rq">
+          <text>&gt;2025</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yn7h33">
+          <text>"HIDUP"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_043ir67">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nh0zci">
+        <inputEntry id="UnaryTests_14bnyeq">
+          <text>[2015..2020]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_096imjs">
+          <text>"HIDUP"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bprmv1">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02dvsl9">
+        <inputEntry id="UnaryTests_0mrooxu">
+          <text>[2010..2014]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h5jh1i">
+          <text>"MATI"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vwv5na">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0n8ub4l">
+        <inputEntry id="UnaryTests_0ycwiua">
+          <text>&lt;2010</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gxl9mp">
+          <text>"MATI"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k7lb0b">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0746hvh" name="Year of Vehicle" />
+  <inputData id="InputData_10n82n9" name="Vehicle Type" />
+  <inputData id="InputData_0ehjozc" name="Tax Status" />
+  <inputData id="InputData_0dwv50s" name="Requested Amount" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1slct5u">
+        <dc:Bounds height="80" width="180" x="400" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_069ims5" dmnElementRef="InformationRequirement_0z45zzr">
+        <di:waypoint x="550" y="220" />
+        <di:waypoint x="490" y="180" />
+        <di:waypoint x="490" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_00lzcn4" dmnElementRef="InformationRequirement_0v0v3xd">
+        <di:waypoint x="250" y="190" />
+        <di:waypoint x="445" y="180" />
+        <di:waypoint x="445" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_10ywwrv" dmnElementRef="Decision_0ibjfoo">
+        <dc:Bounds height="80" width="180" x="460" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0o9f9zf" dmnElementRef="Decision_1j0e9yu">
+        <dc:Bounds height="80" width="180" x="160" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_069frh8" dmnElementRef="InputData_0746hvh">
+        <dc:Bounds height="45" width="125" x="447" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0rh0yrf" dmnElementRef="InputData_10n82n9">
+        <dc:Bounds height="45" width="125" x="617" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0193u2m" dmnElementRef="InputData_0ehjozc">
+        <dc:Bounds height="45" width="125" x="167" y="347" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1uy3up7" dmnElementRef="InformationRequirement_1r98469">
+        <di:waypoint x="230" y="347" />
+        <di:waypoint x="250" y="290" />
+        <di:waypoint x="250" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1raxtkn" dmnElementRef="InformationRequirement_0es4419">
+        <di:waypoint x="510" y="337" />
+        <di:waypoint x="520" y="320" />
+        <di:waypoint x="520" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1r26wf2" dmnElementRef="InformationRequirement_1q4fepo">
+        <di:waypoint x="680" y="337" />
+        <di:waypoint x="580" y="320" />
+        <di:waypoint x="580" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_03zmdtc" dmnElementRef="InputData_0dwv50s">
+        <dc:Bounds height="45" width="125" x="917" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1w8fni6" dmnElementRef="InformationRequirement_1ogpgn5">
+        <di:waypoint x="980" y="217" />
+        <di:waypoint x="535" y="180" />
+        <di:waypoint x="535" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
